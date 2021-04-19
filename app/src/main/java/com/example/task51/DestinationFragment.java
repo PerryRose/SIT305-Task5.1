@@ -64,26 +64,11 @@ public class DestinationFragment extends Fragment {
         TextView destinationDescriptionTextView = view.findViewById(R.id.fragmentDescriptionTextView);
         ImageView destinationImageView = view.findViewById(R.id.fragmentImageView);
 
-        Button button = view.findViewById(R.id.backButton);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Log.e("Hello", "");
-
-                getActivity().getSupportFragmentManager().popBackStack();
-
-            }
-        });
-
         destinationNameTextView.setText(destinationName);
         destinationDescriptionTextView.setText(destinationDescription);
         destinationImageView.setImageResource(destinationImage);
 
     }
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
