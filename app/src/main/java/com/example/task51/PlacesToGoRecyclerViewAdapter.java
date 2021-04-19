@@ -54,6 +54,7 @@ public class PlacesToGoRecyclerViewAdapter extends RecyclerView.Adapter<PlacesTo
                 activity.getSupportFragmentManager().beginTransaction()
                         .setReorderingAllowed(true)
                         .add(R.id.fragmentContainerView, DestinationFragment.class, bundle)
+                        .addToBackStack(null)
                         .commit();
 
 
@@ -79,5 +80,6 @@ public class PlacesToGoRecyclerViewAdapter extends RecyclerView.Adapter<PlacesTo
             destinationNameTextView = itemView.findViewById(R.id.placesToGoNameTextView);
             destinationDescriptionTextView = itemView.findViewById(R.id.placesToGoDescriptionTextView);
         }
+
     }
 }

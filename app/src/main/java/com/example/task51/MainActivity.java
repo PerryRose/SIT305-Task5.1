@@ -22,7 +22,11 @@ public class MainActivity extends AppCompatActivity {
 
         SetUpTopDestinations();
         SetUpPlacesToGo();
-        //FragmentTest();
+    }
+
+    @Override
+    public void onBackPressed() {
+        getSupportFragmentManager().popBackStack();
     }
 
     private void SetUpTopDestinations()
@@ -30,33 +34,14 @@ public class MainActivity extends AppCompatActivity {
         topDestinationsRecyclerView = findViewById(R.id.topDestinationsRecyclerView);
         topDestinationsRecyclerViewAdapter = new TopDestinationsRecyclerViewAdapter(new TopDestinations().GetDestinations(), this);
         topDestinationsRecyclerView.setAdapter(topDestinationsRecyclerViewAdapter);
-
         topDestinationsRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
     }
 
     private void SetUpPlacesToGo()
     {
-
         placesToGoRecyclerView = findViewById(R.id.placesToGoRecyclerView);
         placesToGoRecyclerViewAdapter = new PlacesToGoRecyclerViewAdapter(new PlacesToGo().GetDestinations(), this);
         placesToGoRecyclerView.setAdapter(placesToGoRecyclerViewAdapter);
-
         placesToGoRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-    }
-
-    public void FragmentTest()
-    {
-        Bundle bundle = new Bundle();
-        bundle.putInt("some_int", 150);
-
-        getSupportFragmentManager().beginTransaction()
-                .setReorderingAllowed(true)
-                .add(R.id.fragmentContainerView, DestinationFragment.class, bundle)
-                .commit();
-
-    }
-
-    public void Test(View view) {
-        Log.e("Hello", "");
     }
 }
